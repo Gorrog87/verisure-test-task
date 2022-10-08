@@ -9,7 +9,7 @@ const Form = () => {
   return (
     <>
       <div className="bg-form justify-content-center align-items-center pt-5 pb-2 px-3 mx-5">
-        <h3 className="text-center mb-3">Formulaire de parainage</h3>
+        <h3 className="text-center mb-3">Formulaire de parrainage</h3>
         <label>
           <i className="text-secondary">NOM PARRAIN *</i>
         </label>
