@@ -1,4 +1,21 @@
-.bg-page{
-    background-image: url("../assets/background.jpg");
-    /* background-position: 500px 0; */
+.bg-page {
+  background-image: url("../assets/background.jpg");
+  object-fit: contain;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+  .bg-page {
+    background-position: 500px 1000px;
   }
+}
+
+@media screen and (min-width: 481px) {
+  .bg-page {
+    background-position: unset;
+  }
+}
