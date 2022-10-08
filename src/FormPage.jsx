@@ -5,7 +5,7 @@ import Form from "./Form";
 const FormPage = () => {
   return (
     <>
-      <div style={{backgroundImage: `url ("../assets/background.jpg")`}} className="">
+      <div style={{backgroundImage: `url ("../assets/background.jpg")`}} className="d-flex">
         <Form />
       </div>
     </>
