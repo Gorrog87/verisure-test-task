@@ -5,6 +5,8 @@
 input {
   all: unset;
   background-color: #f0f2f4c7;
+  caret-color: #ff0033;
+  width:100% ;
 }
 
 .form-input {
@@ -16,7 +18,5 @@ button {
   all: unset;
   color: #ffff;
   background-color: #ff0033;
-  box-shadow: unset;
-  text-shadow: unset;
   border-radius: 10px;
 }

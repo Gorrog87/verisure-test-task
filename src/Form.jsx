@@ -1,11 +1,33 @@
-import React from "react";
+import React  from "react";
 import "./assets/form.css";
 
 const Form = () => {
-  // let parrainInput = getElementById(parrain-input);
-  // let filleulInput = getElementById(filleul-number-input);
-  // let emailParrainInput = getElementById(email-parrain-input);
-  // let filleulNameInput = getElementById(filleul-name-input);
+
+
+  // function parrainInputHandler() {
+  //   const parrainInput = document.getElementById("parrain-input");
+  //   if (parrainInput.value > 50) {
+  //     alert.log("This input should contain less than 50 character");
+  //   }
+  //   if (parrainInput.value === "") {
+  //     alert.log("This input cannot be empty, please insert the correct value");
+  //   }
+  // }
+
+  // function inputChecker() {
+  //   const filleulInput = getElementById(filleul-number-input);
+  //   const emailParrainInput = getElementById(email-parrain-input);
+  //   const filleulNameInput = getElementById(filleulName-input);
+
+  //   const inputList = ["parrainInput", "filleulInput", "emailParrainInput", "filleulNameInput"];
+
+  //   const [inputColor, setInputColor] = useState("black");
+  //   return(
+  //     <>
+  //     <input style={ { color: setInputColor } }></input>
+  //     </>
+  //   )
+
   return (
     <>
       <div className="bg-form justify-content-center align-items-center pt-5 pb-2 px-3 mx-5">
@@ -19,7 +41,7 @@ const Form = () => {
               <input
                 type="text"
                 placeholder=""
-                className="my-1 opacity-0"
+                className="my-1"
                 id="parrain-input"
               />
             </div>
@@ -32,7 +54,7 @@ const Form = () => {
               <input
                 type="text"
                 placeholder=""
-                className="my-1 opacity-0"
+                className="my-1"
                 id="filleul-number-input"
               />
             </div>
@@ -47,7 +69,7 @@ const Form = () => {
               <input
                 type="text"
                 placeholder=""
-                className="my-1 opacity-0"
+                className="my-1"
                 id="email-parrain-input"
               />
             </div>
@@ -60,8 +82,8 @@ const Form = () => {
               <input
                 type="text"
                 placeholder=""
-                className="my-1 opacity-0"
-                id="filleul-name-input"
+                className="my-1"
+                id="filleulName-input"
               />
             </div>
           </div>
