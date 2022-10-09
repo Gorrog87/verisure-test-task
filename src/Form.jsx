@@ -1,36 +1,18 @@
-import React  from "react";
+import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 import "./assets/form.css";
 
 const Form = () => {
-
-
-  // function parrainInputHandler() {
-  //   const parrainInput = document.getElementById("parrain-input");
-  //   if (parrainInput.value > 50) {
-  //     alert.log("This input should contain less than 50 character");
-  //   }
-  //   if (parrainInput.value === "") {
-  //     alert.log("This input cannot be empty, please insert the correct value");
-  //   }
-  // }
-
-  // function inputChecker() {
-  //   const filleulInput = getElementById(filleul-number-input);
-  //   const emailParrainInput = getElementById(email-parrain-input);
-  //   const filleulNameInput = getElementById(filleulName-input);
-
-  //   const inputList = ["parrainInput", "filleulInput", "emailParrainInput", "filleulNameInput"];
-
-  //   const [inputColor, setInputColor] = useState("black");
-  //   return(
-  //     <>
-  //     <input style={ { color: setInputColor } }></input>
-  //     </>
-  //   )
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
 
   return (
     <>
-      <div className="bg-form justify-content-center align-items-center pt-5 pb-2 px-3 mx-5">
+      <form className="bg-form justify-content-center align-items-center pt-5 pb-2 px-3 mx-5 ">
         <h3 className="text-center mb-3">Formulaire de parrainage</h3>
         <div className="row">
           <div className="col-md-6">
@@ -43,7 +25,24 @@ const Form = () => {
                 placeholder=""
                 className="my-1"
                 id="parrain-input"
+                {...{
+                  required: true,
+                  minLength: {
+                    value: 1,
+                    message: "This field can't be less than 1 character",
+                  },
+                  maxLength: {
+                    value: 50,
+                    message: "This input accepts 50 characters max",
+                  },
+                  pattern: {
+                    value: /^[A-Za-z]+$/,
+                    message: "This field accpets only alphabetical characters",
+                  },
+                }}
               />
+              {errors.pattern?.type === 'required' && <p role="alert">NOM PARRAIN is required in this field</p>}
+              {/* {errors.exampleRequired && <span>This field is required</span>} */}
             </div>
           </div>
           <div className="col-md-6">
@@ -56,7 +55,19 @@ const Form = () => {
                 placeholder=""
                 className="my-1"
                 id="filleul-number-input"
+                {...{
+                  required: true,
+                  maxLength: {
+                    value: 10,
+                    message: "Only 10 numbers are accpeted in this field",
+                  },
+                  pattern: {
+                    value: /^\d{3}-\d{3}-\d{4}$/,
+                    message: "This field accepts only numbers",
+                  },
+                }}
               />
+              {errors.exampleRequired && <span>This field is required</span>}
             </div>
           </div>
         </div>
@@ -71,6 +82,13 @@ const Form = () => {
                 placeholder=""
                 className="my-1"
                 id="email-parrain-input"
+                {...{
+                  required: false,
+                  pattern: {
+                    value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                    message: "This field demands a correct email syntax",
+                  },
+                }}
               />
             </div>
           </div>
@@ -84,17 +102,36 @@ const Form = () => {
                 placeholder=""
                 className="my-1"
                 id="filleulName-input"
+                {...{
+                  required: true,
+                  minLength: { value: 1 },
+                  maxLength: {
+                    value: 50,
+                    message: "This input accepts 50 characters max",
+                  },
+                  pattern: {
+                    value: /^[A-Za-z]+$/,
+                    message: "This field accpets only alphabetical characters",
+                  },
+                }}
               />
+              {errors.exampleRequired && <span>This field is required</span>}
             </div>
           </div>
           <div className="d-flex justify-content-center">
-            <button className="my-3 px-5 py-1">ENVOYER</button>
+            <button
+              onClick={handleSubmit(onSubmit)}
+              className="my-3 px-5 py-1"
+              type={"submit"}
+            >
+              ENVOYER
+            </button>
           </div>
           <p className="text-secondary ms-4">
             <i>* Champs obligatoires</i>
           </p>
         </div>
-      </div>
+      </form>
     </>
   );
 };
